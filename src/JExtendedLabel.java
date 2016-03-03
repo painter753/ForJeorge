@@ -30,7 +30,7 @@ public class JExtendedLabel extends JLabel {
 
 
     public JExtendedLabel(Font f, String s){
-        super("");
+        setText("Dummy");
         textFont = f;
         text = s;
     }
@@ -41,7 +41,6 @@ public class JExtendedLabel extends JLabel {
         if (!analyzeFlag){
             super.paintComponent(g);
         } else {
-
             super.paintComponent(g);
             Graphics2D g2 = (Graphics2D) g;
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
@@ -144,6 +143,45 @@ public class JExtendedLabel extends JLabel {
         } else {
             System.out.println("[ERROR] Row is null or Spans are null or String is null");
         }
+    }
+
+//    @Override
+//    public void setMinimumSize(Dimension minimumSize) {
+//        minimumSize.setSize(minimumSize.getWidth(), minimumSize.getHeight());
+//        super.setMinimumSize(minimumSize);
+//    }
+
+    @Override
+    public Dimension getMinimumSize() {
+        Dimension minimumSize = super.getMinimumSize();
+        minimumSize.setSize(minimumSize.getWidth(), minimumSize.getHeight() + 45);
+        return minimumSize;
+    }
+
+//    @Override
+//    public void setMaximumSize(Dimension maximumSize) {
+//        maximumSize.setSize(maximumSize.getWidth(), maximumSize.getHeight());
+//        super.setMaximumSize(maximumSize);
+//    }
+
+    @Override
+    public Dimension getMaximumSize() {
+        Dimension maximumSize = super.getMaximumSize();
+        maximumSize.setSize(maximumSize.getWidth(), maximumSize.getHeight() + 45);
+        return maximumSize;
+    }
+
+//    @Override
+//    public void setPreferredSize(Dimension preferredSize) {
+//        preferredSize.setSize(preferredSize.getWidth(), preferredSize.getHeight());
+//        super.setPreferredSize(preferredSize);
+//    }
+
+    @Override
+    public Dimension getPreferredSize() {
+        Dimension preferredSize = super.getPreferredSize();
+        preferredSize.setSize(preferredSize.getWidth(), preferredSize.getHeight() + 45);
+        return preferredSize;
     }
 
     @Override
